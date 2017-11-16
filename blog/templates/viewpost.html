@@ -16,8 +16,8 @@
                         <img src="#">
                     {% endif %}
                     <p>{{ post.content }}</p>
-                    <button class="btn btn-default" onclick="location.href='#'">Back To Blog</button>
-                    <button class="btn btn-default" onclick="location.href='#'">Edit</button>
+                    <button class="btn btn-default" onclick="location.href='{% url 'main' %}'">Back To Blog</button>
+                    <button class="btn btn-default" onclick="location.href='{% url 'editpost' post.id %}'">Edit</button>
                     <p>{{ post.published_date }}</p>
                 </div>
             </div>

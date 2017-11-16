@@ -21,7 +21,7 @@ from blog import urls as blog_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', blogposts),
+    url(r'^$', blogposts, name="main"),
     url(r'^accounts/', include(accounts_urls)),
     url(r'^blog/', include(blog_urls)),
 ]
