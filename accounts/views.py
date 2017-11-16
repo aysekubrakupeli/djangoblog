@@ -21,7 +21,7 @@ def login(request):
         form=UserLoginForm(request.POST)
         
         if form.is_valid():
-            user = auth.authenticate(username=form.cleaned_data['username'],
+            user = auth.authenticate(username=form.cleaned_data['username_or_email'],
                                      password=form.cleaned_data['password'])
 
             if user is not None:
@@ -41,7 +41,6 @@ def login(request):
     
     return render(request, "login.html", {'form': form})
 
-
 def register(request):
     if request.method=="POST":
         form = UserRegistrationForm(request.POST)
@@ -57,6 +56,6 @@ def register(request):
                 messages.error(request, "You have successfully logged in")
                 return redirect(profile)
     else:
-        form = form.add_error(None, "Your username or passwords was not recognised")
+        form = UserRegistrationForm()
     
     return render(request, "register.html", {'form': form})
