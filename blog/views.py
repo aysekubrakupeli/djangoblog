@@ -12,6 +12,7 @@ def blogposts(request):
 
 def viewpost(request, id):
     post = get_object_or_404(Post, pk=id)
+    post.views += 1
     return render(request, "viewpost.html", {"post": post})
 
 @login_required()
