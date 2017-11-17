@@ -2,6 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from .forms import UserLoginForm, UserRegistrationForm
+from django.urls import reverse
+
 
 
 # Create your views here.
@@ -14,7 +16,7 @@ def profile(request):
     
 def logout(request):
     auth.logout(request)
-    return redirect(get_index)
+    return redirect(reverse('main'))
     
 def login(request):
     if request.method=="POST":
