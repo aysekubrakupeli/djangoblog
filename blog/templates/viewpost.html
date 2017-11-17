@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-xs-9">
                     {% if post.image %}
-                        <img src="{{ MEDIA_URL }}{{ post.image }}">
+                        <img src="{{ MEDIA_URL }}{{ post.image }}" style="width: 250px; height: 250px; border-radius: 50%;">
                     {% endif %}
                     <p>{{ post.content }}</p>
                     <button class="btn btn-default" onclick="location.href='{% url 'main' %}'">Back To Blog</button>
